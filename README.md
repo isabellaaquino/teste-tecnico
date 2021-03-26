@@ -10,6 +10,7 @@
 
 ## Observações:
 - A pagina /profile tem um carregamento lento, devido a atualização do número atual com o processamento de dados;
+- O número de cada cliente só se atualiza após uma nova requisição de renderização, ou seja, quando se atualiza a página;
 
 ## Autor
 Feito por [Isabella Aquino](https://github.com/isabellaaquino).
