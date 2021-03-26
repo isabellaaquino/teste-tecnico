@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link href="{% static "styleHome.css" %}" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;1,200&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="{% static "byneicon.jpeg" %}" type='image/jpeg' />
+    <title>BYNE</title>
+</head>
+<body>
+    <div class='headerContainer'> 
+        <a class='icon' href='/'>
+            <img src="{% static 'byne-verde.svg' %}" alt="My image">
+        </a>
+        <div class='options'>
+            <form action='/'>
+                <input value='Home' type='submit' id='homeB'>
+                </input>
+            </form>
+        </div>
+    </div>
+    <div class='contentContainer'>
+        <div class='textContent'> 
+            <p> Por favor, complete suas informações.</p>    
+            <hr> 
+        </div>
+        <div class='midContent'>
+            {% if form.errors %}
+                <p>O usuário ou a senha não foram digitados corretamente. Por favor, digite novamente.</p>
+            {% endif %}
+
+            <form method="post" action="">
+                {% csrf_token %}
+                <table class='tables'>
+                <tr>
+                    <td>{{ form.username.label_tag }}</td>
+                    <td>{{ form.username }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.password.label_tag }}</td>
+                    <td>{{ form.password }}</td>
+                </tr>
+                </table>
+                <br>
+                <input type="submit" value="Login"/>
+                <input type="hidden" name="next" value="{{ next }}" />
+            </form>
+
+        </div>
+    <div class='bottomContainer'>
+        <div class='logo'> 
+        </div>
+    </div> 
+    </div> 
+    
+</body>
+</html>
