@@ -15,13 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from pages.views import home_view
 from django.conf import settings
 from django.conf.urls.static import static
+from services.views import ParView
+
 
 urlpatterns = [
-    path('home/', home_view, name='home'),
+    path('api-auth/', include('rest_framework.urls')),
     path('admin/', admin.site.urls),
     path('', include('clients.urls')),
-    path('', include('django.contrib.auth.urls'))
+    path('', include('django.contrib.auth.urls')),
+    path('teste/', ParView.as_view(), name='test' )
 ] 
