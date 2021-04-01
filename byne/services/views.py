@@ -4,6 +4,7 @@ import datetime
 # third party imports:
 from rest_framework.views import APIView
 from rest_framework.response import Response
+# Endpoints para os serviços geradores de Pares / Ímpares;
 
 global impares
 global pares

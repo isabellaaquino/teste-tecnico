@@ -5,7 +5,6 @@ from django.contrib.auth import authenticate, login
 from .models import Profile
 from django.contrib.auth.models import User
 import random
-import numpy
 import time
 import requests 
 import datetime
@@ -46,7 +45,7 @@ def NumberLoop(request):
         }
         print(context)
         while True:
-            for i in numpy.arange(0.5):
+            for i in range(1):
                 profile.number+=1
                 time.sleep(0.5)
                 hora = str(datetime.datetime.now())
@@ -59,6 +58,7 @@ def NumberLoop(request):
                 profile.loglist.append(profile.log.copy())
                 profile.save()
                 randomNumb = random.randint(3,6)
+                print(profile.log)
                 if int(diferenca[6])==randomNumb:
                     return render(request, 'clients/profile.html', context)
     else:
@@ -86,12 +86,12 @@ def NumberLoop(request):
                 time.sleep(0.5)
                 profile.loglist.append(profile.log.copy())
                 profile.save()
+                print(profile.log)
             time.sleep(1)
             context = {
                 'profile': profile,
                 'number': profile.number
             }
-            print(context)
             return render(request, 'clients/profile.html', context)
 
 def logView(request):
