@@ -13,6 +13,7 @@
 - Exclusão da biblioteca numpy;
 - Adição da biblioteca requests para requisição das apis;
 - Organização dos serviços em um novo "app" e não mais na aba clients;
+- Simplificação do repositório no GitHub;
 
 
 ## Autor
